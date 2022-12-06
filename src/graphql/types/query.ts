@@ -1,8 +1,7 @@
 import {gql} from "graphql-tag";
-import { DocumentNode } from "graphql"
 
-export const type: DocumentNode = gql`
+export default gql`
     type Query {
-        root: String    
+        root: String
     }
 `

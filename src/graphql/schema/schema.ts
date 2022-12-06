@@ -2,25 +2,22 @@ import { makeExecutableSchema } from "@graphql-tools/schema";
 import { GraphQLSchema } from "graphql";
 import { IResolvers } from "@graphql-tools/utils";
 import { loadFilesSync } from "@graphql-tools/load-files";
-import { type } from "../types/query"
-import { resolver } from "../resolvers/query"
+import {join} from "path";
+import {mergeResolvers, mergeTypeDefs} from "@graphql-tools/merge";
 
 export const getSchema = async (): Promise<GraphQLSchema> => {
-  const typeDefs = loadFilesSync(
-    `${__dirname}
-    /src/graphql/types/**/*.ts
-  `,
+  const typeDefs = mergeTypeDefs(loadFilesSync(
+      join(__dirname, '../types'),
     { recursive: true }
-  );
-  const resolvers = loadFilesSync<IResolvers>(
-    `${__dirname}
-    /src/graphql/resolvers/**/*.ts
-  `,
+  ));
+
+  const resolvers = mergeResolvers(loadFilesSync<IResolvers>(
+      join(__dirname, '/src/resolvers'),
     { recursive: true }
-  );
+  ));
 
   return makeExecutableSchema({
-    typeDefs: [type],
-    resolvers: [resolver],
+    typeDefs,
+    resolvers,
   });
 };

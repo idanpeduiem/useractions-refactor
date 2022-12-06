@@ -1,0 +1,10 @@
+overwrite: true
+schema:
+  - './src/graphql/types/**/*.ts':
+      noRequire: true
+generates:
+  src/graphql/index.d.ts:
+    plugins:
+      - "typescript"
+    config:
+      enumsAsTypes: true
