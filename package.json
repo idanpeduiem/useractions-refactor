@@ -5,7 +5,7 @@
   "scripts": {
     "start": "npm run build && nodemon src/server.ts",
     "start:prod": "node dist/server.js",
-    "build": "tsc && npm run generate",
+    "build": "npm run generate && tsc ",
     "prebuild": "rimraf dist",
     "generate": "graphql-codegen"
   },
@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "@apollo/server": "^4.2.2",
+    "@apollo/server-plugin-landing-page-graphql-playground": "^4.0.0",
     "@graphql-tools/load-files": "^6.5.4",
     "@graphql-tools/merge": "^8.2.14",
     "@graphql-tools/schema": "^8.3.14",
