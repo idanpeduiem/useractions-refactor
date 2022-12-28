@@ -28,8 +28,6 @@
     "typescript": "^4.7.3"
   },
   "dependencies": {
-    "@apollo/server": "^4.2.2",
-    "@apollo/server-plugin-landing-page-graphql-playground": "^4.0.0",
     "@graphql-tools/load-files": "^6.5.4",
     "@graphql-tools/merge": "^8.2.14",
     "@graphql-tools/schema": "^8.3.14",
@@ -40,7 +38,9 @@
     "express": "^4.18.2",
     "graphql": "^16.6.0",
     "graphql-tag": "^2.12.6",
+    "graphql-yoga": "^3.1.2",
     "lodash": "^4.17.21",
+    "prettier": "^2.8.1",
     "rimraf": "^3.0.2"
   }
 }
